@@ -1,0 +1,729 @@
+:root{
+  --bg:#0f0f10;
+  --card:#181a1f;
+  --text:#f7f7f8;
+  --muted:#c6c7cb;
+  --accent:#ff6b35;
+  --accent-2:#ffd166;
+  --radius:18px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family: system-ui;
+  background: radial-gradient(circle at top, #1a1a1d, #0f0f10);
+  color: var(--text);
+}
+
+/* ================= CONTENEDOR ================= */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
+
+/* ================= NAV ================= */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(15,15,16,0.6);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 30px;
+}
+
+/*  LOGO */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:42px;
+  height:42px;
+  background: linear-gradient(45deg, var(--accent), var(--accent-2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  font-size:20px;
+  box-shadow: 0 0 15px rgba(255,107,53,.5);
+}
+
+.brand-text{
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:.5px;
+}
+
+/* 🔥 MENÚ */
+.nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+  padding:0;
+}
+
+.nav a{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:500;
+  position: relative;
+  transition:.3s;
+}
+
+/*  EFECTO HOVER  */
+.nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0%;
+  height:2px;
+  background: var(--accent);
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+.nav a:hover::after{
+  width:100%;
+}
+
+/*  ACCIONES DERECHA */
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.user{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/*  BOTÓN NAV */
+.nav .btn{
+  padding:8px 14px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+/* ================= BOTONES ================= */
+.btn{
+  padding:10px 15px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  background: linear-gradient(45deg, var(--accent), #ff8c42);
+  color:white;
+  font-weight:600;
+  transition:.2s;
+  box-shadow:0 5px 15px rgba(255,107,53,.4);
+}
+
+.btn:hover{
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:0 10px 25px rgba(255,107,53,.6);
+}
+
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+}
+
+.nav .btn{
+  color:#111;
+}
+
+.nav .btn:hover{
+  color:#fff;
+  background: linear-gradient(45deg, #ff6b35, #ff8c42);
+  box-shadow:0 0 15px rgba(255,107,53,.8);
+}
+
+/* ================= HERO ================= */
+.hero{
+  width: 100%;
+  min-height: 90vh;
+
+  background: url('../img/fondos/hero.jpeg') no-repeat center center;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /*  animación */
+  animation: zoomHero 20s ease-in-out infinite alternate;
+}
+
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.9) 0%,
+    rgba(0,0,0,0.8) 35%,
+    rgba(0,0,0,0.4) 65%,
+    rgba(0,0,0,0.1) 85%,
+    transparent 100%
+  );
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+
+  max-width: 480px;
+  margin-left: 80px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /*  EFECTO  */
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.hero h1{
+  font-size: 64px;
+  line-height: 1.1;
+  margin: 15px 0;
+  color: white;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.hero h1 span{
+  display: block;
+  font-size: 72px;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(255,107,53,.5);
+}
+
+.hero p{
+  color: #f1f1f1;
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tag{
+  color: #f0f0f0;
+  opacity: .9;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.hero-buttons{
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero .btn{
+  padding:12px 22px;
+  border-radius:12px;
+  font-size:16px;
+}
+
+.hero .btn-outline{
+  border:2px solid var(--accent);
+}
+
+/* ================= PRODUCTOS PRO ================= */
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:30px;
+}
+
+/*  CARD */
+.card{
+  background: linear-gradient(145deg, #181a1f, #111);
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  transition:.4s;
+}
+
+/*  HOVER */
+.card:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  border-color: rgba(255,107,53,.4);
+}
+
+/*  CONTENEDOR IMAGEN */
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+
+  transition: transform .5s ease;
+}
+
+/* zoom imagen */
+.card:hover img{
+  transform: scale(1.08);
+}
+
+/*  CONTENIDO */
+.card h3{
+  margin:15px 15px 5px;
+  font-size:18px;
+}
+
+.card p{
+  margin:0 15px 10px;
+  font-size:14px;
+  color:var(--muted);
+  min-height:40px;
+}
+
+/*  PRECIO */
+.precio{
+  display:block;
+  margin:0 15px 15px;
+  font-size:18px;
+  font-weight:bold;
+  color:var(--accent);
+}
+
+/*  BOTÓN */
+.card form{
+  padding: 0 15px 20px;
+}
+
+.card button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+
+  background: linear-gradient(45deg, var(--accent), #ff8c42);
+  color:white;
+  font-weight:600;
+
+  cursor:pointer;
+  transition:.3s;
+
+  box-shadow:0 5px 15px rgba(255,107,53,.4);
+}
+
+.card button:hover{
+  transform: translateY(-2px);
+  box-shadow:0 10px 25px rgba(255,107,53,.6);
+}
+
+/*  EFECTO BRILLO */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);
+  opacity:0;
+  transition:.4s;
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+/* ================= SECCIONES ================= */
+.section{
+  max-width:1400px; /*  más ancho */
+  width:95%;
+  margin:40px auto;
+  padding:25px;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,107,53,.25);
+  text-align:center;
+  box-shadow:0 0 20px rgba(255,107,53,.1);
+  transition:.3s;
+  animation: fadeUp 0.8s ease;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:25px;
+}
+
+.section-box{
+  padding:20px;
+  border-radius:15px;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+  transition:.3s;
+}
+
+.section-box h2{
+  margin-bottom:10px;
+}
+
+.section-box p{
+  line-height:1.6;
+}
+
+.section-box p{
+  line-height:1.8;
+  text-align:justify; /* se estira bonito */
+}
+
+.section-box:hover{
+  transform: translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+.section:hover{
+  border-color: var(--accent);
+  box-shadow:0 0 30px rgba(255,107,53,.2);
+}
+
+.section h2{
+  color: var(--accent);
+}
+
+#contacto p{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:10px 0;
+  font-size:15px;
+}
+
+#contacto p:hover{
+  color: var(--accent);
+  transform: scale(1.05);
+  transition:.3s;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+  border-top:1px solid rgba(255,107,53,.2);
+  margin-top:40px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:768px){
+  .hero{
+    background-position: center;
+  }
+
+  .hero-content{
+    max-width: 100%;
+    margin-left: 0;
+    padding: 40px 20px;
+  }
+
+  .hero h1{
+    font-size: 34px;
+  }
+
+  .hero h1 span{
+    font-size: 38px;
+  }
+}
+
+@media (max-width:768px){
+  .grid-2{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= LOGIN / REGISTRO ================= */
+.auth-body{
+  display:flex;
+  justify-content: center;  
+  align-items:center;
+  min-height:100vh;
+
+  background: url('../img/fondos/fondo-login.jpeg') no-repeat center right;
+  background-size: cover;
+
+  position: relative;
+}
+
+.auth-body::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.4) 25%,
+    rgba(0,0,0,0.1) 50%,
+    rgba(0,0,0,0.4) 75%,
+    rgba(0,0,0,0.85) 100%
+  );
+}
+
+.panel{
+  position: relative;
+  z-index: 2;
+
+  width:100%;
+  max-width:400px;
+  padding:30px;
+  border-radius:var(--radius);
+
+  /*  EFECTO VIDRIO */
+  background: rgba(24, 26, 31, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,.6),
+    0 0 20px rgba(255,107,53,.2);
+}
+
+.register-link{
+  margin-top:15px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.register-link a{
+  color: var(--accent);
+  font-weight:600;
+  text-decoration:none;
+  margin-left:5px;
+  padding:5px 10px;
+  border-radius:8px;
+  transition:.3s;
+}
+
+.register-link a:hover{
+  background: rgba(255,107,53,0.15);
+  box-shadow: 0 0 10px rgba(255,107,53,0.5);
+  color:#fff;
+}
+
+.panel h1{
+  text-align:center;
+  margin-bottom:20px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+label{
+  display:block;
+  margin-top:10px;
+  font-weight:600;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:5px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.15);
+  background:#121317;
+  color:white;
+}
+
+input:focus{
+  outline:none;
+  border-color: var(--accent);
+  box-shadow:0 0 10px rgba(255,107,53,.5);
+}
+
+@media (max-width:768px){
+  .auth-body{
+    justify-content:center;
+    background-position: center;
+  }
+
+  .panel{
+    margin-left: 0;
+  }
+}
+
+/* ================= CARRITO ================= */
+#carrito{
+  max-width:600px;
+  margin:40px auto;
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* ================= PEDIDOS ================= */
+.pedidos-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.pedido-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  border:1px solid rgba(255,255,255,.08);
+  transition:.3s;
+}
+
+.pedido-card:hover{
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.pedido-card h3{
+  margin:0 0 10px;
+}
+
+.pedido-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.pedido-card strong{
+  color:var(--accent);
+}
+
+.hero-content{
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomHero{
+  0%{
+    background-size: 100%;
+    background-position: center;
+  }
+
+  100%{
+    background-size: 110%;
+    background-position: center;
+  }
+}
+
+/* ================= BOTÓN AGREGAR PRO ================= */
+
+.btn-agregar{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+
+  background: linear-gradient(45deg, var(--accent), #ff8c42);
+  color:white;
+  font-weight:600;
+
+  cursor:pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition:.3s;
+}
+
+/* texto */
+.btn-agregar .texto{
+  display:inline-block;
+  transition:.3s;
+}
+
+/* check oculto */
+.btn-agregar .check{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size:18px;
+  transition:.3s;
+}
+
+/* hover */
+.btn-agregar:hover{
+  transform: translateY(-2px);
+  box-shadow:0 10px 25px rgba(255,107,53,.6);
+}
+
+/* click */
+.btn-agregar:active{
+  transform: scale(0.95);
+}
+
+/* efecto agregado */
+.btn-agregar:focus{
+  background: linear-gradient(45deg, #28a745, #4cd964);
+}
+
+.btn-agregar:focus .texto{
+  opacity:0;
+}
+
+.btn-agregar:focus .check{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.auth-body::before{
+  pointer-events: none;
+}
+
+.hero::before{
+  pointer-events: none;
+}
+
+.card::before{
+  pointer-events: none;
+}
